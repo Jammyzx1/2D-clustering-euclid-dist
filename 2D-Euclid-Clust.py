@@ -1,8 +1,7 @@
 #################################
 #
-# Script written by James L. McDonagh 2016 to cluster addresses based on Eastings and Northings data 
-# The script expects as input a csv file of label, eastings and northings data in that order
-# The following website can be used to find this data https://www.doogal.co.uk/UKPostcodes.php
+# Script written by James L. McDonagh 2016 to cluster 2D coordinate data 
+# The script expects as input a csv file of label, coordinate 1 and coordinate 2 data in that order
 #
 #################################
 
@@ -17,8 +16,7 @@ import datetime
 print '\n 2D Co-ordinate Clustering Based on Euclidean Distance\n'
 print '\n\nInstructions\n'
 print '\tCURRENTLY ONLY ABLE TO PRODUCE AN EVEN NUMBER OF CLUSTERS'
-print '\tThis script expects as input a csv file of label, coordinate 1 and coordinate 2 data in that order.' 
-print '\tThe following website can be used to find UK latitude longitude Easting Northing data https://www.doogal.co.uk/UKPostcodes.php.'
+print '\tThis script expects as input a csv file of label, coordinate 1 and coordinate 2 data in that order.'
 print '\tThis script identifies labels which are maximally separated from one another and stores them (referred to as nodes). All other coordinates are compared to these.'
 print '\tThe other coordinates are grouped together based on which node they are closest to in the 2D space defined by your coordinate system. These points are then printed out in the groups created.'
 print '\tThere is no account of travel distance just distances as the crow flys.\n' 
@@ -28,7 +26,7 @@ print '\t COORDINATES - The input coordinates from a csv file'
 print '\n\n'
 
 # Get user input and read csv file input into pandas for processing and passing to np
-fin = str(raw_input('Please enter the input file name containing the label Eastings and Northings in that order\n'))
+fin = str(raw_input('Please enter the input file name containing the label coordinate 1 and coordinate 2 in that order\n'))
 if os.path.isfile(fin) :
         address = pd.read_csv(fin, sep=",")
 else:
